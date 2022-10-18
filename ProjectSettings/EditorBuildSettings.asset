@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Topdown2DPitfall/DemoScene/PitfallDemoScene.unity
+    path: Assets/Topdown2DPitfall/DemoScene/TitleScreen.unity
+    guid: 2608faf02b25c6f4494ed6570c318c62
+  - enabled: 1
+    path: Assets/Topdown2DPitfall/DemoScene/Room1.unity
     guid: 5077d0a4146d34c42b0a8a43b042c89a
+  - enabled: 1
+    path: Assets/Topdown2DPitfall/DemoScene/Room2.unity
+    guid: ffa78986727ef2e4da8f1870fbca1565
+  - enabled: 1
+    path: Assets/Topdown2DPitfall/DemoScene/EndScreen.unity
+    guid: 7e078df13fabf2f44a0e3cf94000e7d1
   m_configObjects: {}

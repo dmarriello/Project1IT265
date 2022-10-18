@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class WaterCountUpdate : MonoBehaviour
+public class MoveToEnd : MonoBehaviour
 {
     private Player gamePlayer;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +15,9 @@ public class WaterCountUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<TMPro.TextMeshProUGUI>().text = "Water Hazard Count: "+gamePlayer.fallCount.ToString();
+        if (gamePlayer.GetComponent<Transform>().position.x > 8.4)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 }

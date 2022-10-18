@@ -7,7 +7,6 @@ public class Player : MonoBehaviour, IPitfallCheck, IPitfallObject {
     public bool isMovable = true;
     private Vector2 moveVelocity;
     private SpriteRenderer sr;
-    public int fallCount = 0;
     private Transform tfm;
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -34,21 +33,21 @@ public class Player : MonoBehaviour, IPitfallCheck, IPitfallObject {
         }
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         MovementInput(input);
-        if(tfm.position.x<-9.5f)
+        if(tfm.position.x<-8.5f)
         {
-            tfm.position = new Vector3(9.5f, tfm.position.y, tfm.position.z);
+            tfm.position = new Vector3(-8.5f, tfm.position.y, tfm.position.z);
         }
-        if (tfm.position.x > 9.5f)
+        if (tfm.position.x > 8.5f)
         {
-            tfm.position = new Vector3(-9.5f, tfm.position.y, tfm.position.z);
+            tfm.position = new Vector3(8.5f, tfm.position.y, tfm.position.z);
         }
-        if (tfm.position.y > 6f)
+        if (tfm.position.y > 4.5f)
         {
-            tfm.position = new Vector3(tfm.position.x, -6f, tfm.position.z);
+            tfm.position = new Vector3(tfm.position.x, 4.5f, tfm.position.z);
         }
-        if (tfm.position.y < -6f)
+        if (tfm.position.y < -4.5f)
         {
-            tfm.position = new Vector3(tfm.position.x, 6f, tfm.position.z);
+            tfm.position = new Vector3(tfm.position.x, -4.5f, tfm.position.z);
         }
     }
 
@@ -66,7 +65,7 @@ public class Player : MonoBehaviour, IPitfallCheck, IPitfallObject {
 
     public void PitfallActionsBefore() {
         isMovable = false;
-        fallCount++;
+        MainManager.Instance.waterCount++;
     }
 
     public void PitfallResultingAfter() {
