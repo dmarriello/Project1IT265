@@ -11,6 +11,8 @@ using UnityEngine;
     public string TimeInRoom1="";
     public string TimeInRoom2="";
     public float yVal = 0;
+    public bool paused = false;
+    private float holdtime=0;
         private void Awake()
         {
             if (Instance != null)
@@ -22,5 +24,25 @@ using UnityEngine;
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            paused = !paused;
+            if(paused)
+            {
+                holdtime = Time.timeScale;
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                if(holdtime!=0f)
+                {
+                    Time.timeScale = holdtime;
+                }
+                
+            }
+        }
     }
+}
 

@@ -15,19 +15,16 @@ public class Player : MonoBehaviour, IPitfallCheck, IPitfallObject {
     }
 
     void Update() {
-        if (Input.GetKey("escape"))
-        {
-            Application.Quit();
-        }
+        
         if (!isMovable) {
             MovementInput(Vector2.zero);
             return;
         }
-        if (Input.GetAxisRaw("Horizontal") < 0f && !sr.flipX)
+        if (Input.GetAxisRaw("Horizontal") < 0f && !sr.flipX&&!MainManager.Instance.paused)
         {
             sr.flipX = true;
         }
-        if (Input.GetAxisRaw("Horizontal") > 0f && sr.flipX)
+        if (Input.GetAxisRaw("Horizontal") > 0f && sr.flipX && !MainManager.Instance.paused)
         {
             sr.flipX = false;
         }
